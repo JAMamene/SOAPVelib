@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="040477c5-f32b-4086-8712-c5b6f8002705" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/VelibLibrary/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e885e22a-365b-4bdd-9ad3-0db257cecd37" SourceId="1" SourceUrl="http://localhost:8733/VelibLibrary/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="643df802-1065-49ea-a7ac-bf6c30ec0984" SourceId="1" SourceUrl="http://localhost:8733/VelibLibrary/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="95a3239e-9e1b-4209-bcb3-06e9ac0c3d9e" SourceId="1" SourceUrl="http://localhost:8733/VelibLibrary/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="42371e85-626e-4e37-a753-331580e5f08a" SourceId="1" SourceUrl="http://localhost:8733/VelibLibrary/mex" />
+    <MetadataFile FileName="VelibLibrary.xsd" MetadataType="Schema" ID="8ee40c88-e125-45dc-9669-d1300e72dd6b" SourceId="1" SourceUrl="http://localhost:8733/VelibLibrary/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

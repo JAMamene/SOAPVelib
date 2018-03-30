@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceVelibSOAP", "WcfServiceVelibSOAP\WcfServiceVelibSOAP.csproj", "{C5F5D635-38AF-49BE-8534-89EAAA13EF0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleClienVelib", "ConsoleClienVelib\ConsoleClienVelib.csproj", "{ED38DCE1-9785-4645-B018-E3BCE65501E2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C5F5D635-38AF-49BE-8534-89EAAA13EF0B} = {C5F5D635-38AF-49BE-8534-89EAAA13EF0B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUIClienVelib", "GUIClienVelib\GUIClienVelib.csproj", "{EDB79C2E-9A9E-409D-9812-B74807D782A7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C5F5D635-38AF-49BE-8534-89EAAA13EF0B} = {C5F5D635-38AF-49BE-8534-89EAAA13EF0B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUIClienMonitoring", "GUIClienMonitoring\GUIClienMonitoring.csproj", "{FC5ED002-E149-400A-B0EB-E9777E56D582}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C5F5D635-38AF-49BE-8534-89EAAA13EF0B} = {C5F5D635-38AF-49BE-8534-89EAAA13EF0B}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5F5D635-38AF-49BE-8534-89EAAA13EF0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5F5D635-38AF-49BE-8534-89EAAA13EF0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5F5D635-38AF-49BE-8534-89EAAA13EF0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5F5D635-38AF-49BE-8534-89EAAA13EF0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED38DCE1-9785-4645-B018-E3BCE65501E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED38DCE1-9785-4645-B018-E3BCE65501E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED38DCE1-9785-4645-B018-E3BCE65501E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED38DCE1-9785-4645-B018-E3BCE65501E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDB79C2E-9A9E-409D-9812-B74807D782A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDB79C2E-9A9E-409D-9812-B74807D782A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDB79C2E-9A9E-409D-9812-B74807D782A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDB79C2E-9A9E-409D-9812-B74807D782A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC5ED002-E149-400A-B0EB-E9777E56D582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC5ED002-E149-400A-B0EB-E9777E56D582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC5ED002-E149-400A-B0EB-E9777E56D582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC5ED002-E149-400A-B0EB-E9777E56D582}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F55D4BD0-B37C-4C86-8962-F5145100B99B}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,37 @@
+﻿<Window x:Class="GUIClienMonitoring.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUIClienMonitoring"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="365.099" Width="957.763">
+    <Grid Margin="0,0,3.2,1.2">
+        <Button Content="Update" HorizontalAlignment="Left" Click="Refresh" Height="33" Margin="269,267,0,0" VerticalAlignment="Top" Width="378"/>
+        <Grid HorizontalAlignment="Left" Height="208" Margin="97,59,0,0" VerticalAlignment="Top" Width="431">
+            <Label Content="Number of requests done by IWS :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="216" FontSize="14"/>
+            <Label Content="WS" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" FontSize="14"/>
+            <Label Content="Cached" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" FontSize="14"/>
+            <Label x:Name="CachedRequest" Content="" HorizontalAlignment="Left" Margin="152,101,0,0" VerticalAlignment="Top" Width="197" FontSize="14"/>
+            <Label x:Name="WSRequest" Content="" HorizontalAlignment="Left" Margin="152,57,0,0" VerticalAlignment="Top" Width="197" FontSize="14"/>
+            <Label Content="Requests in the last " HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" FontSize="14" Width="133"/>
+            <Label Content="minutes (0 for all time)" HorizontalAlignment="Left" Margin="246,144,0,0" VerticalAlignment="Top" FontSize="14" Width="175"/>
+            <Label x:Name="sinceTime" Content="" HorizontalAlignment="Left" Margin="226,10,0,0" VerticalAlignment="Top" FontSize="14" Width="123"/>
+            <TextBox x:Name="minutesLabel" x:FieldModifier="private" Text="0" TextChanged="minutesLabel_TextChanged" Margin="139,150,230,35" />
+            <Button x:Name="cmdUp" x:FieldModifier="private" Content="˄" Click="cmdUp_Click" Margin="204,150,207,35" />
+            <Button x:Name="cmdDown" x:FieldModifier="private" Content="˅" Click="cmdDown_Click" Margin="226,150,185,35" />
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="208" Margin="585,59,0,0" VerticalAlignment="Top" Width="301">
+            <Label Content="Minimum delay" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="109"/>
+            <Label Content="Average delay" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" FontSize="14" Width="109"/>
+            <Label x:Name="avgDelay" Content="" HorizontalAlignment="Left" Margin="152,101,0,0" VerticalAlignment="Top" Width="74" FontSize="14"/>
+            <Label x:Name="minDelay" Content="" HorizontalAlignment="Left" Margin="152,57,0,0" VerticalAlignment="Top" Width="74" FontSize="14"/>
+            <Label Content="Maximum delay" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" FontSize="14" Width="133"/>
+            <Label x:Name="maxDelay" Content="" HorizontalAlignment="Left" Margin="152,144,0,0" VerticalAlignment="Top" Width="74" FontSize="14"/>
+            <Label Content="Metrics of response time :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="216" FontSize="14"/>
+            <Label Content="ms" HorizontalAlignment="Left" Margin="252,57,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="39"/>
+            <Label Content="ms" HorizontalAlignment="Left" Margin="252,101,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="39"/>
+            <Label Content="ms" HorizontalAlignment="Left" Margin="252,144,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="39"/>
+        </Grid>
+    </Grid>
+</Window>
