@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="IMonitoring.cs" />
     <Compile Include="IVelib.cs" />
+    <Compile Include="IVelibEventContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Velib.cs" />
   </ItemGroup>

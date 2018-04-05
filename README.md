@@ -1,3 +1,4 @@
+
 # ServiceVelibSOAP
 
 Il s'agit d'un WebService .NET qui traduit le service **REST** de l'API Velib JCDecaux en un WebService **SOAP**.
@@ -8,6 +9,7 @@ Il s'agit d'un WebService .NET qui traduit le service **REST** de l'API Velib JC
 -   Client GUI  
 -   Accès asynchrones (IWS et client GUI)
 -   Cache (IWS)
+-  Système d'abonnement et programmation événementielle
 
 **Monitoring :**
  - WS Endpoint de monitoring
@@ -123,6 +125,11 @@ Renvoie le nombre de requêtes effectuées avec l'appel **au service REST** et le 
       </GetWSRequestsTimeSpanResult>
     </GetWSRequestsTimeSpanResponse>
 
+# Contrat d'Event
+
+Les clients peuvent s'abonner avec la méthode **Subscribe** par l'endpoint **IVelibEventContract**, ainsi, en redéfinissant le callback **VelibChanged**, ils peuvent être notifiés dynamiquement lorsque le nombre de vélibs disponibles dans la station concernée est modifiée.
+A noter que pour l'instant, il n'y a pas de réel gestion du désabonnement ainsi que de la mémoire, donc cette solution n'est pas viable dans un context réel.
+
 # Clients 
 
 ## Client console
@@ -150,3 +157,9 @@ La solution a aussi un **client monitoring** qui vient se brancher au endpoint M
  - **Le nombre de requêtes effectuées par le WebService.** D'une part les requêtes demandant une **connexion** au service REST et d'autre part celles effectuées grâce au **cache** du WebService. On peut éventuellement spécifié une période (champ pour indiquer qu'on veut les requêtes effectués seulement sur les n dernière minutes)
 
 - **Temps moyen d’exécution** des requêtes par le WebService ainsi que le **minimum** et le **maximum**. Etant donné que le WebService a un cache, le minimum et le maximum peuvent être très hétérogènes.
+
+Le client monitoring ne compte pas les opérations en lien avec l'extension des events car j'avais la flemme.
+
+## Client Subscriber
+
+**Un client qui s'abonne à une station** au choix de l'utilisateur et avec un taux de rafraîchissement également choisi. Il implémente un callback pour afficher simplement les informations de la station, **et ce seulement quand le nombre de stand a été modifié.**

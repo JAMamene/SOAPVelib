@@ -6,10 +6,12 @@ using System;
 using System.Runtime.Caching;
 using System.Threading.Tasks;
 using System.Linq;
+using System.ServiceModel;
+using System.Threading;
 
 namespace VelibLibrary
 {
-    public class Velib : IVelib, IMonitoring
+public class Velib : IVelib, IMonitoring, IVelibEventContract
     {
         private WebRequest request;
         private const string API_KEY = "apiKey=f7cc7565a9fc3788700377f355edf4077c6d56a6";
@@ -18,6 +20,8 @@ namespace VelibLibrary
         private static string cityCacheName = "cities";
         private static IList<Request> requests = new List<Request>();
         private static IList<long> execTimes = new List<long>();
+        private static IList<Timer> timers = new List<Timer>();
+        private static IDictionary<String, int> availability = new Dictionary<String, int>();
 
         public async Task<IList<string>> GetCitiesAsync()
         {
@@ -134,6 +138,38 @@ namespace VelibLibrary
                 };
             }
             return metrics;
+        }
+
+        public void Subscribe(string station, string city, int time)
+        {
+            IVelibClientContract subscriber = OperationContext.Current.GetCallbackChannel<IVelibClientContract>();
+            timers.Add(new Timer(
+                e => ChangeVelibs(station, city, subscriber.VelibChanged, time),
+                null,
+                TimeSpan.Zero,
+                TimeSpan.FromMinutes(time)));
+        }
+
+        private void ChangeVelibs(string station, string city, Action<string, string, int, int, int> action, int time)
+        {
+            System.Diagnostics.Debug.WriteLine(station + " / " + city);
+            WebRequest request = WebRequest.Create("https://api.jcdecaux.com/vls/v1/stations/" + station + "?contract=" + city + "&apiKey=f7cc7565a9fc3788700377f355edf4077c6d56a6");
+            WebResponse response = request.GetResponse();
+            Stream dataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(dataStream);
+            string responseFromServer = reader.ReadToEnd();
+            JObject jsonResponse = JObject.Parse(responseFromServer);
+            int available = Int32.Parse(jsonResponse.GetValue("available_bikes").ToString());
+            if (!availability.ContainsKey(station + city))
+            {
+                availability[station + city] = available;
+                action(station, city, available, available, time);
+            }
+            if (available != availability[station+city])
+            {
+                action(station, city, availability[station + city], available, time);
+                availability[station + city] = available;
+            }
         }
     }
 
